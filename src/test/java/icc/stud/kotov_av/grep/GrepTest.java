@@ -5,8 +5,12 @@ import org.junit.Test;
 public class GrepTest {
 
   @Test
-  public void testMain() {
-    Grep.main(null);
+  public void mainTest() {
+    String[] args = {"-i", "-V", "2", "3"};
+    Grep.main(args);
+
+    args = new String[] {"yhvlyv", "obluyv"};
+    Grep.main(args);
   }
 
 }
