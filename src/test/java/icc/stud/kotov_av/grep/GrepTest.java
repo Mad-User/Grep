@@ -2,11 +2,11 @@ package icc.stud.kotov_av.grep;
 
 import org.junit.Test;
 
-public class AppTest {
+public class GrepTest {
 
   @Test
   public void testMain() {
-    App.main(null);
+    Grep.main(null);
   }
 
 }
