@@ -1,28 +1,36 @@
 package icc.stud.kotov_av.grep;
 
-import org.kohsuke.args4j.CmdLineException;
-import org.kohsuke.args4j.CmdLineParser;
+public class Grep {
 
-public class Grep {  
+  static enum Args {
+    i, r, v;
 
-  private static DataHolder parseArguments(final String[] args) {
+    boolean match(String arg) {
+      return ("-" + name()).equalsIgnoreCase(arg);
+    }
+  }
+
+  static DataHolder parseArguments(final String[] args) throws IllegalArgumentException {
     final DataHolder dataHolder = new DataHolder();
-    final CmdLineParser parser = new CmdLineParser(dataHolder);
 
-    if (args.length < 2 || args.length > 5) {
-      System.out.println("Bad arguments...");
-      System.exit(-1);
-    } 
-    else {
-      try {
-        parser.parseArgument(args);
-      } catch (final CmdLineException clEx) {
-        System.out.println("Bad arguments...");
-        System.exit(-1);
+    int count = 0;
+    for (String arg : args) {
+      if (Args.i.match(arg)) {
+        dataHolder.caseIgnore = true;
+      } else if (Args.r.match(arg)) {
+        dataHolder.regex = true;
+      } else if (Args.v.match(arg)) {
+        dataHolder.inversion = true;
+      } else {
+        count++;
+        if (count == 1) {
+          dataHolder.word = arg;
+        } else if (count == 2) {
+          dataHolder.inputFile = arg;
+        } else {
+          throw new IllegalArgumentException("");
+        }
       }
-
-      dataHolder.word = args[args.length - 2];
-      dataHolder.inputFile = args[args.length - 1];
     }
 
     return dataHolder;
