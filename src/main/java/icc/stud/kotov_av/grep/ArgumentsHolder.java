@@ -2,10 +2,13 @@ package icc.stud.kotov_av.grep;
 
 public class ArgumentsHolder {
 
+    // "-r" || "-R"
     public boolean regex;
 
+    // "-v" || "-V"
     public boolean inversion;
 
+    // "-i" || "-I"
     public boolean caseIgnore;
 
     public String word;
@@ -13,10 +16,6 @@ public class ArgumentsHolder {
     public String inputFile;
 
     public ArgumentsHolder(String[] args) {
-        parseArguments(args);
-    }
-
-    private void parseArguments(final String[] args) throws IllegalArgumentException {
         int count = 0;
         for (String arg : args) {
             if (Args.i.match(arg)) {
