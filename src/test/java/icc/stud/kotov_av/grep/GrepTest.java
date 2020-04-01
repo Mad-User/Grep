@@ -11,17 +11,10 @@ public class GrepTest {
   @Test
   public void mainTest() {
     String[] args = {"-i", "-V", "hdgc", "file.txt"};
-    DataHolder holder = Grep.parseArguments(args);
+    ArgumentsHolder holder = new ArgumentsHolder(args);
     assertTrue(holder.caseIgnore);
     assertTrue(holder.inversion);
     assertEquals(holder.word, "hdgc");
     assertEquals(holder.inputFile, "file.txt");
-
-    // args = new String[] {"yhvlyv", "obluyv"};
-    // Grep.main(args);
-
-    // args = new String[] {"yhvlyv", "obluyv", "sdgsdg"};
-    // Grep.main(args);
   }
-
 }
