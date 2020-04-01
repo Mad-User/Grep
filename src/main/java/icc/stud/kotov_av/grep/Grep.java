@@ -1,14 +1,18 @@
 package icc.stud.kotov_av.grep;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 public class Grep {
   public static void main(final String[] args) {
-    
     ArgumentsHolder ah = new ArgumentsHolder(args);
+    FileHandler fh = new FileHandler();
 
-    String[] array = new String[] { "123\n", "321\n", "111\n", "222\n", "333\n", "444\n", "555\n", "666\n", "777\n", "888\n", "999\n", "000\n", "111\n", "222\n", "333\n", "444\n"};
-
-    for (String string : array) {
-      System.out.print(string);
+    try (BufferedReader br = new BufferedReader(new FileReader(ah.inputFile))) {
+      fh.execute(ah, br);
+      fh.print();
+    } catch (Exception ex) {
+      System.out.println(ex.getMessage());
     }
   }
 }
