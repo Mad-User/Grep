@@ -15,7 +15,7 @@ public class ArgumentsHolder {
 
     public String inputFile;
 
-    public ArgumentsHolder(String[] args) {
+    public ArgumentsHolder(String[] args) throws Exception {
         int count = 0;
         for (String arg : args) {
             if (Args.i.match(arg)) {
@@ -31,7 +31,7 @@ public class ArgumentsHolder {
                 } else if (count == 2) {
                     inputFile = arg;
                 } else {
-                    throw new IllegalArgumentException("");
+                    throw new IllegalArgumentException("Error: Bad arguments.");
                 }
             }
         }
