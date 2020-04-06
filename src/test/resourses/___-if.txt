@@ -1,0 +1,91 @@
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+#ifndef _ISTREAM_
+#if _STL_COMPILER_PREPROCESSOR
+#if defined(__FORCE_INSTANCE)
+        if (!_Noinit) {
+#endif // defined(__FORCE_INSTANCE)
+            if (_Rdbuf) {
+            if (_Rdbuf) {
+        bool _Ok; // true if _Ipfx succeeded at construction
+        if (!this->good()) {
+        if (_Tied) {
+        if (!_Noskip && this->flags() & ios_base::skipws) { // skip whitespace
+                if (_Traits::eq_int_type(_Traits::eof(), _Meta)) { // end of file, quit
+                } else if (!_Ctype_fac.is(_Ctype::space, _Traits::to_char_type(_Meta))) {
+        if (_Eof) {
+#ifdef _M_CEE_PURE
+#endif // _M_CEE_PURE
+        if (_Ok) { // state okay, use facet to extract
+        if (_Ok) { // state okay, use facet to extract
+            if (_Lval < SHRT_MIN) {
+            } else if (_Lval > SHRT_MAX) {
+        if (_Ok && _Strbuf) { // state okay, extract characters
+                if (_Traits::eq_int_type(_Traits::eof(), _Meta)) { // end of file, quit
+                if (_Traits::eq_int_type(_Traits::eof(), _Strbuf->sputc(_Traits::to_char_type(_Meta)))) {
+        if (_Chcount == 0) { // If the function inserts no characters, it calls setstate(failbit)
+        if (!_Ok) {
+            if (_Traits::eq_int_type(_Traits::eof(), _Meta)) {
+        if (_Ok && 0 < _Count) { // state okay, extract characters
+                if (_Traits::eq_int_type(_Traits::eof(), _Meta)) { // end of file, quit
+                } else if (_Traits::to_char_type(_Meta) == _Delim) {
+        if (!_Traits::eq_int_type(_Traits::eof(), _Meta)) {
+        if (_Ok) { // state okay, use facet to extract
+                if (_Traits::eq_int_type(_Traits::eof(), _Meta)) { // end of file, quit
+                    if (_Ch == _Delim || _Traits::eq_int_type(_Traits::eof(), _Strbuf.sputc(_Ch))) {
+        if (_Chcount == 0) {
+        if (_Ok && 0 < _Count) { // state okay, use facet to extract
+                if (_Traits::eq_int_type(_Traits::eof(), _Meta)) { // end of file, quit
+                } else if (_Meta == _Metadelim) { // got a delimiter, discard it and quit
+                } else if (--_Count <= 0) { // buffer full, quit
+        if (_Ok && 0 < _Count) { // state okay, use facet to extract
+            for (;;) { // get a metacharacter if more room in buffer
+                if (_Count != (numeric_limits<streamsize>::max)() && --_Count < 0) {
+                } else if (_Traits::eq_int_type(_Traits::eof(),
+                    if (_Meta == _Metadelim) {
+        if (_Ok && 0 < _Count) { // state okay, use facet to extract
+            if (_Num != _Count) {
+        if (!_Ok) {
+        } else if ((_Num = _Myios::rdbuf()->in_avail()) < 0) {
+        } else if (0 < _Count && 0 < _Num) { // read available
+        if (!_Ok) {
+            if (_Traits::eq_int_type(_Traits::eof(), _Meta = _Myios::rdbuf()->sgetc())) {
+        if (_Ok) { // state okay, put character back
+            if (_Traits::eq_int_type(_Traits::eof(), _Myios::rdbuf()->sputbackc(_Ch))) {
+        if (_Ok) { // state okay, put character back
+            if (_Traits::eq_int_type(_Traits::eof(), _Myios::rdbuf()->sungetc())) {
+        if (!_Rdbuf) {
+        bool _Sync_failed = true; // sync fails if an exception is thrown
+        if (_Sync_failed) {
+        if (!this->fail() && static_cast<off_type>(_Myios::rdbuf()->pubseekpos(_Pos, ios_base::in)) == -1) {
+        if (!this->fail() && static_cast<off_type>(_Myios::rdbuf()->pubseekoff(_Off, _Way, ios_base::in)) == -1) {
+        if (!this->fail()) {
+#ifndef _NATIVE_WCHAR_T_DEFINED
+#endif // _NATIVE_WCHAR_T_DEFINED
+#if defined(_DLL_CPPLIB)
+#if !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+#endif // !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+#ifdef __FORCE_INSTANCE
+#endif // __FORCE_INSTANCE
+#endif // defined(_DLL_CPPLIB)
+        if (this != _STD addressof(_Right)) {
+#if defined(_DLL_CPPLIB)
+#if !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+#endif // !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+#ifdef __FORCE_INSTANCE
+#endif // __FORCE_INSTANCE
+#endif // defined(_DLL_CPPLIB)
+    if (_Ok) { // state okay, extract characters
+        if (_Width > 0 && _Width < _Size) {
+            if (_Traits::eq_int_type(_Traits::eof(), _Meta)) { // end of file, quit
+            } else if (_Ctype_fac.is(_Ctype::space, _Ch = _Traits::to_char_type(_Meta)) || _Ch == _Elem()) {
+    if (_Current == 0) {
+#if _HAS_CXX20 // P0487R1 Fixing operator>>(basic_istream&, CharT*)
+#endif // _HAS_CXX20
+    if (_Ok) { // state okay, extract characters
+        if (_Traits::eq_int_type(_Traits::eof(), _Meta)) {
+    enable_if_t<conjunction_v< // avoid infinite recursion
+    if (_Ok) { // state okay, extract characters
+            if (_Traits::eq_int_type(_Traits::eof(), _Meta)) { // end of file, quit
+            } else if (!_Ctype_fac.is(ctype<_Elem>::space, _Traits::to_char_type(_Meta))) {
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _ISTREAM_

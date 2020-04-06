@@ -1,0 +1,191 @@
+    explicit __CLR_OR_THIS_CALL basic_istream(_Mysb* _Strbuf, bool _Isstd, bool _Noinit) : _Chcount(0) {
+        if (!_Noinit) {
+        }
+    }
+        : _Chcount(0) {
+    }
+    __CLR_OR_THIS_CALL basic_istream(_Uninitialized) {
+    }
+    __CLR_OR_THIS_CALL basic_istream(basic_istream&& _Right) : _Chcount(_Right._Chcount) {
+    }
+    basic_istream& __CLR_OR_THIS_CALL operator=(basic_istream&& _Right) {
+    }
+    void __CLR_OR_THIS_CALL swap(basic_istream& _Right) {
+    }
+    virtual __CLR_OR_THIS_CALL ~basic_istream() noexcept {}
+    class _Sentry_base {
+        __CLR_OR_THIS_CALL _Sentry_base(basic_istream& _Istr) : _Myistr(_Istr) {
+            if (_Rdbuf) {
+            }
+        }
+        __CLR_OR_THIS_CALL ~_Sentry_base() noexcept {
+            if (_Rdbuf) {
+            }
+        }
+    class sentry : public _Sentry_base {
+            : _Sentry_base(_Istr), _Ok(_Sentry_base::_Myistr._Ipfx(_Noskip)) {}
+        explicit __CLR_OR_THIS_CALL operator bool() const {
+        }
+        if (!this->good()) {
+        }
+        if (_Tied) {
+        }
+            for (;; _Meta = _Myios::rdbuf()->snextc()) {
+                } else if (!_Ctype_fac.is(_Ctype::space, _Traits::to_char_type(_Meta))) {
+                }
+            }
+        }
+        if (_Eof) {
+        }
+    }
+    }
+    }
+    basic_istream& __CLR_OR_THIS_CALL operator>>(basic_istream&(__clrcall* _Pfn)(basic_istream&) ) {
+    }
+    }
+    }
+    basic_istream& __CLR_OR_THIS_CALL operator>>(basic_istream&(__cdecl* _Pfn)(basic_istream&) ) {
+    }
+    }
+    }
+        }
+    }
+    }
+            if (_Lval < SHRT_MIN) {
+            } else if (_Lval > SHRT_MAX) {
+            } else {
+            }
+        }
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+            for (int_type _Meta = _Myios::rdbuf()->sgetc();; _Meta = _Myios::rdbuf()->snextc()) {
+                }
+                if (_Traits::eq_int_type(_Traits::eof(), _Strbuf->sputc(_Traits::to_char_type(_Meta)))) {
+                }
+            }
+        }
+        }
+    }
+        if (!_Ok) {
+            if (_Traits::eq_int_type(_Traits::eof(), _Meta)) {
+            }
+        }
+    }
+    }
+            for (; 0 < --_Count; _Meta = _Myios::rdbuf()->snextc()) {
+                } else if (_Traits::to_char_type(_Meta) == _Delim) {
+                }
+            }
+        }
+    }
+        if (!_Traits::eq_int_type(_Traits::eof(), _Meta)) {
+        }
+    }
+    }
+            for (;; _Meta = _Myios::rdbuf()->snextc()) {
+                    if (_Ch == _Delim || _Traits::eq_int_type(_Traits::eof(), _Strbuf.sputc(_Ch))) {
+                    }
+                }
+            }
+        }
+        if (_Chcount == 0) {
+        }
+    }
+    }
+            for (;; _Meta = _Myios::rdbuf()->snextc()) {
+                }
+            }
+        }
+    }
+                if (_Count != (numeric_limits<streamsize>::max)() && --_Count < 0) {
+                    if (_Meta == _Metadelim) {
+                    }
+                }
+            }
+        }
+    }
+            if (_Num != _Count) {
+            }
+        }
+    }
+        if (!_Ok) {
+        } else if ((_Num = _Myios::rdbuf()->in_avail()) < 0) {
+        }
+    }
+    int_type __CLR_OR_THIS_CALL peek() {
+        if (!_Ok) {
+            if (_Traits::eq_int_type(_Traits::eof(), _Meta = _Myios::rdbuf()->sgetc())) {
+            }
+        }
+    }
+            if (_Traits::eq_int_type(_Traits::eof(), _Myios::rdbuf()->sputbackc(_Ch))) {
+            }
+        }
+    }
+            if (_Traits::eq_int_type(_Traits::eof(), _Myios::rdbuf()->sungetc())) {
+            }
+        }
+    }
+    }
+        if (!_Rdbuf) {
+        }
+        if (_Sync_failed) {
+        }
+    }
+        if (!this->fail() && static_cast<off_type>(_Myios::rdbuf()->pubseekpos(_Pos, ios_base::in)) == -1) {
+        }
+    }
+        if (!this->fail() && static_cast<off_type>(_Myios::rdbuf()->pubseekoff(_Off, _Way, ios_base::in)) == -1) {
+        }
+    }
+    pos_type __CLR_OR_THIS_CALL tellg() {
+        if (!this->fail()) {
+        } else {
+        }
+    }
+        : _Myis(_Strbuf, false), _Myos(_Noinit, false) {}
+    __CLR_OR_THIS_CALL basic_iostream(basic_iostream&& _Right) : _Myis(_Right.rdbuf(), false), _Myos(_Noinit, false) {
+    }
+    basic_iostream& __CLR_OR_THIS_CALL operator=(basic_iostream&& _Right) {
+    }
+    void __CLR_OR_THIS_CALL swap(basic_iostream& _Right) {
+        if (this != _STD addressof(_Right)) {
+        }
+    }
+    virtual __CLR_OR_THIS_CALL ~basic_iostream() noexcept {}
+    basic_istream<_Elem, _Traits>& _Istr, size_t _Size, _Elem* _Str) {
+        if (_Width > 0 && _Width < _Size) {
+        }
+        for (; _Current < _Count - 1; _Meta = _Istr.rdbuf()->snextc(), (void) ++_Current) {
+            } else if (_Ctype_fac.is(_Ctype::space, _Ch = _Traits::to_char_type(_Meta)) || _Ch == _Elem()) {
+            } else {
+            }
+        }
+    }
+    if (_Current == 0) {
+    }
+    basic_istream<_Elem, _Traits>& _Istr, _Out_writes_z_(_Size) _Elem (&_Str)[_Size]) {
+    basic_istream<char, _Traits>& _Istr, _Out_writes_z_(_Size) signed char (&_Str)[_Size]) {
+    basic_istream<char, _Traits>& _Istr, _Out_writes_z_(_Size) unsigned char (&_Str)[_Size]) {
+basic_istream<_Elem, _Traits>& operator>>(basic_istream<_Elem, _Traits>& _Istr, _Elem* _Str) {
+basic_istream<char, _Traits>& operator>>(basic_istream<char, _Traits>& _Istr, signed char* _Str) {
+basic_istream<char, _Traits>& operator>>(basic_istream<char, _Traits>& _Istr, unsigned char* _Str) {
+        if (_Traits::eq_int_type(_Traits::eof(), _Meta)) {
+        } else {
+        }
+    }
+        for (typename _Traits::int_type _Meta = _Istr.rdbuf()->sgetc();; _Meta = _Istr.rdbuf()->snextc()) {
+            } else if (!_Ctype_fac.is(ctype<_Elem>::space, _Traits::to_char_type(_Meta))) {
+            }
+        }
+    }
