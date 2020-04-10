@@ -1,47 +1,24 @@
 package icc.stud.kotov_av.grep;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.kohsuke.args4j.Argument;
+import org.kohsuke.args4j.Option;
+
 public class ArgumentsHolder {
 
-    // "-r" || "-R"
-    public boolean regex;
+    @Option(name = "-i", aliases="-I", usage =  "Ignore case")
+    public boolean ignoreCase = false;
+ 
+    @Option(name="-r", aliases="-R", usage="Regex")
+    public boolean isRegex = false;
+ 
+    @Option(name = "-v", aliases="-V", usage =  "Inversion")
+    public boolean isInverse = false;
+ 
+    @Argument
+    List<String> wordAndFileName = new ArrayList();
 
-    // "-v" || "-V"
-    public boolean inversion;
-
-    // "-i" || "-I"
-    public boolean caseIgnore;
-
-    public String word;
-
-    public String inputFile;
-
-    public ArgumentsHolder(String[] args) throws Exception {
-        int count = 0;
-        for (String arg : args) {
-            if (Args.i.match(arg)) {
-                caseIgnore = true;
-            } else if (Args.r.match(arg)) {
-                regex = true;
-            } else if (Args.v.match(arg)) {
-                inversion = true;
-            } else {
-                count++;
-                if (count == 1) {
-                    word = arg;
-                } else if (count == 2) {
-                    inputFile = arg;
-                } else {
-                    throw new IllegalArgumentException("Error: Bad arguments.");
-                }
-            }
-        }
-    }
-
-    private enum Args {
-        i, r, v;
-
-        boolean match(String arg) {
-            return ("-" + name()).equalsIgnoreCase(arg);
-        }
-    }
+    public ArgumentsHolder(){}
 }
