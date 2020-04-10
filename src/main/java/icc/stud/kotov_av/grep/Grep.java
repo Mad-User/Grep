@@ -1,20 +1,32 @@
 package icc.stud.kotov_av.grep;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.kohsuke.args4j.CmdLineParser;
+
 public class Grep {
     private ArrayList<String> lines;
     private ArgumentsHolder ah;
-    private BufferedReader br;
 
     public Grep(String[] args) throws Exception {
+        if (args.length < 2) {
+            throw new Exception("Check arguments...\nYou set not enough info.");
+        }
+        if (args.length > 5) {
+            throw new Exception("Check arguments...\nYou set too many info.");
+        }
+
         lines = new ArrayList<String>();
-        ah = new ArgumentsHolder(args);
-        br = new BufferedReader(new FileReader(ah.inputFile));
+        ah = new ArgumentsHolder();
+
+        CmdLineParser parser = new CmdLineParser(ah);
+        parser.parseArgument(args);
+
         execute();
     }
 
@@ -31,26 +43,36 @@ public class Grep {
     }
 
     public void execute() throws Exception {
-        int flags = ah.caseIgnore ? Pattern.CASE_INSENSITIVE : 0;
-        Pattern pattern = ah.regex ? Pattern.compile(ah.word, flags) : null;
+        File file = new File(ah.wordAndFileName.get(1));
+        if (!file.exists()) {
+            throw new Exception("Check arguments... File " + ah.wordAndFileName.get(1) + " not found");
+        }
 
-        String search = ah.caseIgnore ? ah.word.toLowerCase() : ah.word;
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        try {
+            int flags = ah.ignoreCase ? Pattern.CASE_INSENSITIVE : 0;
+            Pattern pattern = ah.isRegex ? Pattern.compile(ah.wordAndFileName.get(0), flags) : null;
 
-        String line = null;
-        while ((line = br.readLine()) != null) {
-            if (pattern != null) {
-                Matcher matcher = pattern.matcher(line);
-                if (matcher.matches() ^ ah.inversion)
-                    lines.add(line);
-            } else {
-                if (ah.caseIgnore) {
-                    if (line.toLowerCase().contains(search) ^ ah.inversion)
+            String search = ah.ignoreCase ? ah.wordAndFileName.get(0).toLowerCase() : ah.wordAndFileName.get(0);
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                if (pattern != null) {
+                    Matcher matcher = pattern.matcher(line);
+                    if (matcher.matches() ^ ah.isInverse)
                         lines.add(line);
                 } else {
-                    if (line.contains(search) ^ ah.inversion)
-                        lines.add(line);
+                    if (ah.ignoreCase) {
+                        if (line.toLowerCase().contains(search) ^ ah.isInverse)
+                            lines.add(line);
+                    } else {
+                        if (line.contains(search) ^ ah.isInverse)
+                            lines.add(line);
+                    }
                 }
             }
+        } finally {
+            br.close();
         }
     }
 
