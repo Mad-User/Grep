@@ -18,7 +18,7 @@ public class ArgumentsHolder {
     public boolean isInverse = false;
  
     @Argument
-    List<String> wordAndFileName = new ArrayList();
+    List<String> wordAndFileName = new ArrayList<String>();
 
     public ArgumentsHolder(){}
 }
